@@ -1,25 +1,14 @@
-# Shido Node Upgrade Scripts
+# Shido Node Upgrade Script
 
-Automated scripts for upgrading Shido nodes to the Enso upgrade.
+Automated script for upgrading Shido nodes to the Enso upgrade.
 
 ## Usage
 
-**Ubuntu 20.04:**
 ```bash
-chmod +x enso_20.04.sh
-./enso_20.04.sh
+chmod +x enso.sh
+./enso.sh
 ```
 
-**Ubuntu 22.04:**
-```bash
-chmod +x enso_22.04.sh
-./enso_22.04.sh
-```
+Select your Ubuntu version (20.04 or 22.04) when prompted.
 
-**Dry run:**
-```bash
-./enso_20.04.sh --dry-run
-./enso_22.04.sh --dry-run
-```
-
-Stops node → removes old binary → installs new binary → starts node.
+Stops node → updates WASM → removes old binary → installs new binary → starts node.
