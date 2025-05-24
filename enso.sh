@@ -35,28 +35,22 @@ else
 fi
 echo "✓ Old binary removed"
 
-# Step 3: Clone the new Enso upgrade repo
-echo "Step 3: Cloning Enso upgrade repository..."
+# Step 3: Download the new binary
+echo "Step 3: Downloading new shidod binary..."
 if [ "$SIMULATE" = true ]; then
-    echo "  [SIMULATE] Would remove existing mainnet-enso-upgrade directory"
-    echo "  [SIMULATE] Would run: git clone https://github.com/ShidoGlobal/mainnet-enso-upgrade.git"
+    echo "  [SIMULATE] Would run: wget https://github.com/ShidoGlobal/mainnet-enso-upgrade/releases/download/ubuntu22.04/shidod"
 else
-    # Remove existing directory if it exists
-    if [ -d "mainnet-enso-upgrade" ]; then
-        echo "Removing existing mainnet-enso-upgrade directory..."
-        rm -rf mainnet-enso-upgrade
-    fi
-    git clone https://github.com/ShidoGlobal/mainnet-enso-upgrade.git
+    wget https://github.com/ShidoGlobal/mainnet-enso-upgrade/releases/download/ubuntu22.04/shidod
 fi
-echo "✓ Repository cloned"
+echo "✓ Binary downloaded"
 
-# Step 4: Copy and set permissions for new binary
+# Step 4: Install and set permissions for new binary
 echo "Step 4: Installing new binary..."
 if [ "$SIMULATE" = true ]; then
-    echo "  [SIMULATE] Would run: sudo cp mainnet-enso-upgrade/ubuntu22.04build/shidod /usr/local/bin/"
+    echo "  [SIMULATE] Would run: sudo mv shidod /usr/local/bin/"
     echo "  [SIMULATE] Would run: sudo chmod +x /usr/local/bin/shidod"
 else
-    sudo cp mainnet-enso-upgrade/ubuntu22.04build/shidod /usr/local/bin/
+    sudo mv shidod /usr/local/bin/
     sudo chmod +x /usr/local/bin/shidod
 fi
 echo "✓ New binary installed with proper permissions"
