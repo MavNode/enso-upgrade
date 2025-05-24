@@ -9,4 +9,9 @@ chmod +x enso.sh
 ./enso.sh
 ```
 
+**Dry run first (recommended):**
+```bash
+./enso.sh --dry-run
+```
+
 Stops node → removes old binary → installs new binary → starts node.
